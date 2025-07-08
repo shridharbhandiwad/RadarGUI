@@ -29,7 +29,7 @@ HEADERS += \
 
 # Platform-specific configurations
 win32 {
-    RC_ICONS = radar.ico
+    #RC_ICONS = radar.ico
     QMAKE_TARGET_COMPANY = "Radar Systems"
 }
 

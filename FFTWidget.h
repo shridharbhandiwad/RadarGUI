@@ -13,7 +13,7 @@ class FFTWidget : public QWidget
 public:
     explicit FFTWidget(QWidget *parent = nullptr);
     
-    void updateData(const RawADCFrame& adcFrame);
+    void updateData(const RawADCFrameTest& adcFrame);
     void setFrequencyRange(float minFreq, float maxFreq);
 
 protected:
@@ -34,7 +34,7 @@ private:
     std::vector<float> m_magnitudeSpectrum;
     std::vector<float> m_frequencyAxis;
     
-    RawADCFrame m_currentFrame;
+    RawADCFrameTest m_currentFrame;
     float m_minFrequency;
     float m_maxFrequency;
     float m_maxMagnitude;
@@ -43,8 +43,8 @@ private:
     int m_margin;
     
     // Visual settings
-    static constexpr int GRID_LINES_X = 10;
-    static constexpr int GRID_LINES_Y = 8;
-    static constexpr float MIN_MAG_DB = -80.0f;
-    static constexpr float MAX_MAG_DB = 20.0f;
+    static constexpr int GRID_LINES_X = 5;
+    static constexpr int GRID_LINES_Y = 5;
+    static constexpr float MIN_MAG_DB = -20.0f;
+    static constexpr float MAX_MAG_DB = 30.0f;
 };

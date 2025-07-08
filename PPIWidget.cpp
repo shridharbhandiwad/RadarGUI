@@ -4,10 +4,12 @@
 #include <QFont>
 #include <QFontMetrics>
 #include <cmath>
+#include <QtMath>
+
 
 PPIWidget::PPIWidget(QWidget *parent)
     : QWidget(parent)
-    , m_maxRange(10000.0f) // 10km default
+    , m_maxRange(500.0f) // 500 default
     , m_plotRadius(0)
 {
     setMinimumSize(400, 200);
@@ -129,7 +131,7 @@ void PPIWidget::drawTargets(QPainter& painter)
         painter.setBrush(targetColor);
         painter.setPen(QPen(targetColor.lighter(), 2));
         
-        float targetSize = 6 + target.level * 0.1f; // Size based on level
+        float targetSize = 5.0f;// 6 + target.level * 0.1f; // Size based on level
         painter.drawEllipse(targetPos, targetSize, targetSize);
         
         // Draw target ID
@@ -151,7 +153,7 @@ void PPIWidget::drawLabels(QPainter& painter)
         float radius = (float(i) / NUM_RANGE_RINGS) * m_plotRadius;
         
         QPointF labelPos(m_center.x() + radius * 0.707f, m_center.y() - radius * 0.707f);
-        QString rangeText = QString("%1").arg(range / 1000.0f, 0, 'f', 1) + "km";
+        QString rangeText = QString("%1").arg(range, 0, 'f', 1) + "m";
         painter.drawText(labelPos, rangeText);
     }
     

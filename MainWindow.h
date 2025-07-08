@@ -39,6 +39,8 @@ private:
     void updateTrackTable();
     void generateSimulatedTargetData();
     void generateSimulatedADCData();
+    void parseADCMessage(const QString& message);
+    void parseTrackMessage(const QString& message);
     
     // UI Components
     PPIWidget* m_ppiWidget;
@@ -63,7 +65,7 @@ private:
     
     // Data
     TargetTrackData m_currentTargets;
-    RawADCFrame m_currentADCFrame;
+    RawADCFrameTest m_currentADCFrame;
     
     // Simulation
     bool m_simulationEnabled;

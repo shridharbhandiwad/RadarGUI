@@ -4,6 +4,7 @@
 #include <vector>
 
 // Rx Data Format enumeration (placeholder)
+#pragma pack(push, 1)
 enum class Rx_Data_Format_t {
     COMPLEX_FLOAT,
     COMPLEX_INT16,
@@ -53,6 +54,13 @@ struct RawADCFrame {
                    interleaved_rx(0), data_format(Rx_Data_Format_t::REAL_FLOAT) {}
 };
 
+// Raw ADC Frame structure
+struct RawADCFrameTest {
+    uint32_t msgId;
+    uint32_t num_samples_per_chirp;
+    std::vector<float> sample_data;
+};
+
 // UDP Message types
 enum class MessageType : uint8_t {
     TARGET_TRACK_DATA = 1,
@@ -65,3 +73,5 @@ struct MessageHeader {
     uint32_t data_size;
     uint64_t timestamp;
 };
+
+#pragma pack(pop)
